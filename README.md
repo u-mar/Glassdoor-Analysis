@@ -1,7 +1,5 @@
+![Glassdoor](image/glassdoori.png)
 <div align="center">
-  <a href="https://jobsglassdoor-dataengineers.streamlit.app/">
-    <img src="https://user-images.githubusercontent.com/66017329/223897397-46ed35cb-2f61-4cfc-9f38-0cf8b472a864.png" alt="Banner" width="720">
-  </a>
 
   <div id="user-content-toc">
     <ul>
@@ -12,9 +10,7 @@
   <p>Gain insights into the job market for data engineers in the USA</p>
     <a href="https://jobsglassdoor-dataengineers.streamlit.app/" target="_blank">Live Preview</a>
     🛸
-    <a href="https://www.kaggle.com/datasets/hamzaelbelghiti/data-engineering-jobs-in-the-usa-glassdoor" target="_blank">Data on Kaggle</a>
-    🌪️
-    <a href="https://github.com/Hamagistral/DataEngineers-Glassdoor/issues" target="_blank">Request Feature</a>
+
 </div>
 <br>
 <div align="center">
@@ -91,14 +87,14 @@ The salary prediction model is built using a random forest regressor. Finally, t
 <a name="webscraping"></a>
 ## 🕸️ Web Scraping
 
-I adjusted the web scraper using Selenium to scrape data engineering jobs posted last week from Glassdoor US. The output file is then stored in the "/data/raw" folder under the name of "glassdoor-data-engineer-15-2023.csv" where "15" is the week number where the job was posted and "2023" the year. See code [here](https://github.com/Hamagistral/DataEngineers-Glassdoor/blob/master/scripts/glassdoor_scraper.py).
+I adjusted the web scraper using Selenium to scrape data engineering jobs posted last week from Glassdoor US. The output file is then stored in the "/data/raw" folder under the name of "glassdoor-data-engineer-15-2023.csv" where "15" is the week number where the job was posted and "2023" the year. See code [here](https://github.com/u-mar/Glassdoor-Analysis/blob/main/Scraping/job.py).
 
 With each job, I obtained the following: Company Name, Job title, Salary Estimate, Job Description, Rating, Job Location, Company Size, Company Founded Date, Type of Ownership, Industry and Sector. The main challenge for this scraping task, was the duplicated job postings, after the 6th page or so the glassdoor website keeps rerendring the first jobs listings, so all the jobs scraped become a duplicates. That's why I came up with the idea to implement a scheduler to run the script once every week to get the latest job listings, and then usin a data pipeline clean and transform the data then joining it with the cleaned dataset stored in aws s3 bucket that contains all non duplicated and cleaned job listings from previous weeks.
 
 <a name="dataedamodel"></a>
 ## 🧹 Data Cleaning, EDA and Model Building
 
-Please refer to the respective notebooks ([data cleaning](https://github.com/Hamagistral/DataEngineers-Glassdoor/blob/master/notebooks/data_cleaning.ipynb), [data eda](https://github.com/Hamagistral/DataEngineers-Glassdoor/blob/master/notebooks/data_eda.ipynb), [model buidling](https://github.com/Hamagistral/DataEngineers-Glassdoor/blob/master/notebooks/data_modeling.ipynb)).
+Please refer to the respective notebooks ([data cleaning](https://github.com/u-mar/Glassdoor-Analysis/blob/main/notebooks/cleaning.ipynb), [data eda](https://github.com/u-mar/Glassdoor-Analysis/blob/main/notebooks/EDA.ipynb), [model buidling](https://github.com/u-mar/Glassdoor-Analysis/blob/main/notebooks/Modelling.ipynb)).
 
 <a name="installation"></a>
 ## 🖥️ Installation : 
@@ -151,10 +147,8 @@ streamlit run Explore.py
 ## 📋 References
 
 **Project inspired by**: https://github.com/PlayingNumbers/ds_salary_proj  
-**Scraper Github:** https://github.com/arapfaik/scraping-glassdoor-selenium  
 **Scraper Article:** https://towardsdatascience.com/selenium-tutorial-scraping-glassdoor-com-in-10-minutes-3d0915c6d905  
 **Mage ETL inspired by**: https://youtu.be/WpQECq5Hx9g  
-**Streamlit App inspired by**: https://youtu.be/xl0N7tHiwlw
 
 <a name="contact"></a>
 ## 📨 Contact Me
